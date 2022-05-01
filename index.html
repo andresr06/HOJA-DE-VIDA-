@@ -1,0 +1,256 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>JAndresR</title>
+</head>
+
+<body>
+    <section id="presentacion">
+        <H2>José Andrés Pabón Rubio</H2>
+        <div class="perfil">
+            <img src="img/fotoj.jpg" alt="Fotografia de José Pabón" width="250" title="José Pabón">
+        </div>
+
+        <fieldset>
+            <legend><strong>Datos Personales</strong></legend>
+            <script>
+                function retornarDiaSemana(dia) {
+                    switch (dia) {
+                        case 0:
+                            return 'Domingo';
+                        case 1:
+                            return 'Lunes';
+                        case 2:
+                            return 'Martes';
+                        case 3:
+                            return 'Miércoles';
+                        case 4:
+                            return 'Jueves';
+                        case 5:
+                            return 'Viernes';
+                        case 6:
+                            return 'Sábado';
+                        default:
+                            return 'día inválido';
+                    }
+                }
+        
+                function retornarMes(mes) {
+                    switch (mes) {
+                        case 0:
+                            return 'Enero';
+                        case 1:
+                            return 'Febrero';
+                        case 2:
+                            return 'Marzo';
+                        case 3:
+                            return 'Abril';
+                        case 4:
+                            return 'Mayo';
+                        case 5:
+                            return 'Junio';
+                        case 6:
+                            return 'Julio';
+                        case 7:
+                            return 'Agosto';
+                        case 8:
+                            return 'Septiembre';
+                        case 9:
+                            return 'Octubre';
+                        case 10:
+                            return 'Noviembre';
+                        case 11:
+                            return 'Diciembre';
+                        default:
+                            return 'mes inválido';
+                    }
+                }
+        
+        
+                function retornarFechaTexto() {
+                    let fecha = new Date();
+                    let cadena = 'Hoy es ' + retornarDiaSemana(fecha.getDay()) + ' ' + fecha.getDate() + ' de ' +
+                        retornarMes(fecha.getMonth()) + ' de ' + fecha.getFullYear();
+                    return cadena;
+                }
+        
+                document.write(retornarFechaTexto());
+            </script>
+
+            <p><strong>Correo:</strong> <a href="mailto:joseapabon@uts.edu.co">joseapabon@uts.edu.co</a> </p>
+            <p><strong>Edad:</strong> 22 años</p>
+            <p><strong>Ciudad:</strong> Bucaramanga</p>
+            <p><strong>Dirección:</strong> Km 8 Nogal Casa 103</p>
+            <section class="redes">
+            <p><strong>Redes sociales:</strong></p>
+                <a title="GitHub" href="https://github.com/andresr06"><img src="img/github.png" width="30"
+                        alt="@andresr06" /></a>
+                <a title="Facebook" href="https://www.facebook.com/Andres.rubio.86"><img src="img/F.png"
+                        width="30" alt="Andres.rubio.86" /></a>
+                <a title="Instagram" href="https://www.instagram.com/andresr_06/"><img src="img/ig.jpg" width="30"
+                        alt="@andresr_06" /></a>
+            </section>
+
+        </fieldset>
+    </section>
+
+    <section id="contenido">
+
+        <fieldset>
+            <legend><strong>Resultados del Juego al Azar</strong></legend>
+            <script>
+                //clase Numeroquiniela *********************************
+                function NumeroQuiniela(nombre) {
+                    this.nombre = nombre;
+                    this.cargarNumero = function() {
+                        this.numero = parseInt(prompt("Eliga dos Números al azar del 1 al 10 antes de poder visualizar la Hoja de Vida : " + this.nombre ));
+                    }
+                    this.verificarSiGano = function(num) {
+                        if (this.numero == num)
+                            return true;
+                        else
+                            return false;
+        
+                    }
+                }
+        
+                //clase Bolillero **************************************
+                function Bolillero() {
+                    this.numero = -1;
+                    this.sortear = function() {
+                        this.numero = parseInt(Math.random() * 10) + 1;
+                    }
+                }
+                
+                // bloque principal
+                let numeroquiniela1;
+                numeroquiniela1 = new NumeroQuiniela("Número Uno    --->");
+                numeroquiniela1.cargarNumero();
+                let numeroquiniela2;
+                numeroquiniela2 = new NumeroQuiniela("Número Dos    --->");
+                numeroquiniela2.cargarNumero();
+                let bolillero;
+                bolillero = new Bolillero();
+                bolillero.sortear();
+                document.write('Numero Sorteado: ' + bolillero.numero + '<br>');
+                document.write(numeroquiniela1.nombre + '  ' + numeroquiniela1.numero + '<br>');
+                document.write(numeroquiniela2.nombre + '  ' + numeroquiniela2.numero + '<br>');
+                if (numeroquiniela1.verificarSiGano(bolillero.numero)) {
+                    document.write(numeroquiniela1.nombre + ' Ha Ganado <br>');
+                }
+                if (numeroquiniela2.verificarSiGano(bolillero.numero)) {
+                    document.write(numeroquiniela2.nombre + ' Ha Ganado <br>');
+                }
+            </script>
+
+            <div class="azar">
+                <img src="img/a.jpeg" alt="Fotografia de azar" width="150" title="azar">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Estudios cursados</strong></legend>
+            <h3>Tecnología en Sistemas - Unidades Tecnológicas de Santander</h3>
+            <p>Periodo: 2022-Actualidad (6° semestre)</p>
+
+            <div class="estudios">
+                <img src="img/g.jpg" alt="Fotografia de Estudios" width="150" title="Estudios">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Idiomas</strong></legend>
+            <div id="idioma">
+                <div class="col">
+                    <h3>Español</h3>
+                    <p>Nivel nativo</p>
+                </div>
+                <div class="col">
+                    <h3>Ingles</h3>
+                    <p>Nivel B1</p>
+                </div>
+            </div>
+
+            <div class="idiomas">
+                <img src="img/id.jpg" alt="Fotografia de idiomas" width="150" title="idiomas">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Herramientas</strong></legend>
+            <table>
+                <tr>
+                    <th scope="col"><strong>Lenguajes de programación</strong></th>
+                    <th scope="col"><strong>Entornos SQL</strong></th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>C++</li>
+                        <li>C#</li>
+                    </td>
+
+                    <td>
+                        <li>SQL Server</li>
+                        <li>Oracle</li>
+                        <li>PostgreSQL</li>
+                    </td>
+
+                </tr>
+            </table>
+
+            <div class="pro">
+                <img src="img/pro.jpg" alt="Fotografia de programación" width="150" title="pro">
+            </div>
+
+        </fieldset>
+
+        <fieldset>
+            <legend><strong>Intereses</strong></legend>
+            <div id="idioma">
+                <div class="col">
+                    <h3>Libros</h3>
+                    <p>Hiperrealismo</p>
+                    <div class="h">
+                        <img src="img/libro.jpg" alt="Fotografia" width="150" title="h">
+                    </div>
+                    <p>Acción</p>
+                    <div class="t">
+                        <img src="img/tri.jpg" alt="Fotografia" width="150" title="t">
+                    </div>
+                    <p>Suspenso</p>
+                    <div class="s">
+                        <img src="img/s.jpg" alt="Fotografia" width="150" title="s">
+                    </div>
+                </div>
+                <div class="col">
+                    <h3>Aficciones</h3>
+                    <p>Calistenia</p>
+                    <div class="c">
+                        <img src="img/c.jpg" alt="Fotografia" width="150" title="c">
+                    </div>
+                    <p>Fútbol</p>
+                    <div class="fut">
+                        <img src="img/fut.jpg" alt="Fotografia" width="150" title="fut">
+                    </div>
+                    <p>Dibujo</p>
+                    <div class="draw">
+                        <img src="img/draw.jpg" alt="Fotografia" width="150" title="draw">
+                    </div>
+                </div>
+            </div>
+        </fieldset>   
+
+    </section>
+
+</body>
+
+</html>
